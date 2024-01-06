@@ -18,10 +18,9 @@ class StorageUtils {
   static void saveToken(Token? token) async {
     await storage.write("accessToken", token?.accessToken);
     await storage.write("refreshToken", token?.refreshToken);
-    await storage.write("expTime", 120000); //token?.expireTime
+    await storage.write("expTime", token?.expireTime);
     await storage.save();
   }
-  //cbe6c70b-f4b2-41e4-962d-69d3161420bc
 
   static void removeToken() async {
     await storage.remove("accessToken");
